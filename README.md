@@ -14,6 +14,62 @@ This is a **demonstration project** showcasing:
 
 **Target audience**: Technical interview / Portfolio demonstration
 
+## Graph Visualization
+
+![Neo4j Graph](docs/images/neo4j-graph.png)
+*Developer knowledge graph showing relationships between developers, skills, and projects*
+
+## API Example
+
+```http request
+GET http://localhost:8080/api/v1/developers/8f474520-489c-4c18-a93c-71578ab41caa
+```
+
+```json
+{
+  "id": "8f474520-489c-4c18-a93c-71578ab41caa",
+  "code": "DEV002",
+  "name": "Jane Smith",
+  "email": "jane@example.com",
+  "yearsOfExperience": 10,
+  "currentRole": "Tech Lead",
+  "skills": [
+    {
+      "id": "efd8b8d4-e3b1-4272-a218-c8e06374adb4",
+      "name": "Architecture",
+      "category": "Soft Skill",
+      "description": "System design and architecture"
+    },
+    {
+      "id": "6fe5f4e4-60e8-4538-87e8-23894a354594",
+      "name": "Leadership",
+      "category": "Soft Skill",
+      "description": "Team leadership and mentoring"
+    },
+    {
+      "id": "1e8155e0-6325-43dd-81da-44b247ec1891",
+      "name": "Java",
+      "category": "Language",
+      "description": "Object-oriented programming language"
+    }
+  ],
+  "projects": [
+    {
+      "id": "6415d617-f881-4f15-803c-366a8231f26d",
+      "name": "E-Commerce Platform",
+      "description": "Online shopping platform with microservices architecture"
+    },
+    {
+      "id": "5c13aadc-bec5-4cf7-95ce-7976e1f4634f",
+      "name": "Analytics Dashboard",
+      "description": "Real-time business intelligence dashboard"
+    }
+  ]
+}}
+```
+
+![API Response](docs/images/api-response.png)
+
 ## Quick Start
 
 ```bash
