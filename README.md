@@ -2,6 +2,8 @@
 
 A graph-based system for discovering, analyzing, and connecting software developers through their skills, projects, and professional relationships.
 
+[![Build](https://github.com/decebals/devgraph/actions/workflows/build.yml/badge.svg)](https://github.com/decebals/devgraph/actions/workflows/build.yml)
+
 ## Project Purpose
 
 This is a **demonstration project** showcasing:
