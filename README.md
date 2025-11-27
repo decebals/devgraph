@@ -17,6 +17,7 @@ This is a **demonstration project** showcasing:
 ## Graph Visualization
 
 ![Neo4j Graph](docs/images/neo4j-graph.png)
+
 *Developer knowledge graph showing relationships between developers, skills, and projects*
 
 ## API Example
@@ -65,7 +66,7 @@ GET http://localhost:8080/api/v1/developers/8f474520-489c-4c18-a93c-71578ab41caa
       "description": "Real-time business intelligence dashboard"
     }
   ]
-}}
+}
 ```
 
 ![API Response](docs/images/api-response.png)
