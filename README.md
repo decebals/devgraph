@@ -150,10 +150,8 @@ Through this project, you'll explore:
 ## Core Concepts
 
 ```
-(Developer)-[:KNOWS {level, yearsOfExperience}]->(Skill)
-(Developer)-[:WORKED_ON {role, duration}]->(Project)
-(Project)-[:USES]->(Skill)
-(Developer)-[:WORKED_WITH]->(Developer)
+(Developer)-[:KNOWS]->(Skill)
+(Developer)-[:WORKS_ON]->(Project)
 ```
 
 ## Use Cases
