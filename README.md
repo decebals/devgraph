@@ -101,6 +101,13 @@ See Swagger UI for full details.
 
 **Note**: API documentation is disabled in production for security.
 
+### Monitoring
+
+Health check endpoint is available via Spring Boot Actuator:
+```bash
+curl http://localhost:8080/actuator/health
+```
+
 ## Quick Start
 
 ```bash
@@ -160,9 +167,11 @@ Through this project, you'll explore:
 
 This project follows an **incremental development model**:
 
+- [x] Dockerized Neo4j setup
 - [x] Core domain model + basic CRUD operations
 - [x] Graph queries and relationship traversals
 - [x] Swagger/OpenAPI Rest API documentation
+- [x] Monitoring and health checks
 - [ ] Advanced queries and recommendations
 - [ ] Polish, testing, and documentation
 
@@ -172,7 +181,7 @@ This project follows an **incremental development model**:
 - Frontend/UI
 - Extensive testing
 - Performance optimization
-- Monitoring/Logging
+- Extensive monitoring/logging
 - Deployment/Scaling
 
 ## Contributing
