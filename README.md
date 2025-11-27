@@ -136,6 +136,7 @@ curl http://localhost:8080/api/v1/developers
 - **Maven** - Build tool
 - **Docker** - Containerization (for Neo4j)
 - **Swagger/OpenAPI** - API documentation
+- **Testing**: JUnit 5, Testcontainers, AssertJ
 
 ## Learning Objectives
 
@@ -172,8 +173,8 @@ This project follows an **incremental development model**:
 - [x] Graph queries and relationship traversals
 - [x] Swagger/OpenAPI Rest API documentation
 - [x] Monitoring and health checks
+- [x] Polish, testing, and documentation
 - [ ] Advanced queries and recommendations
-- [ ] Polish, testing, and documentation
 
 ## Not covered
 
