@@ -71,6 +71,36 @@ GET http://localhost:8080/api/v1/developers/8f474520-489c-4c18-a93c-71578ab41caa
 
 ![API Response](docs/images/api-response.png)
 
+## API Documentation
+
+The REST API is documented using OpenAPI 3.0 specification with Swagger UI for interactive exploration.
+
+### Accessing the Documentation
+
+Start the application in development mode:
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+```
+
+Then access:
+- **Swagger UI**: http://localhost:8080/swagger-ui.html (interactive API testing)
+- **OpenAPI JSON**: http://localhost:8080/v3/api-docs (machine-readable spec)
+
+![Swagger UI](docs/images/swagger-ui.png)
+
+*Interactive API documentation with Swagger UI*
+
+### Available Endpoints
+
+- `GET /api/v1/developers` - List all developers
+- `GET /api/v1/developers/{id}` - Get developer with skills and projects
+- `GET /api/v1/skills` - List all skills
+- `GET /api/v1/projects` - List all projects
+
+See Swagger UI for full details.
+
+**Note**: API documentation is disabled in production for security.
+
 ## Quick Start
 
 ```bash
@@ -98,6 +128,7 @@ curl http://localhost:8080/api/v1/developers
 - **MapStruct** - Object mapping (DTOs)
 - **Maven** - Build tool
 - **Docker** - Containerization (for Neo4j)
+- **Swagger/OpenAPI** - API documentation
 
 ## Learning Objectives
 
@@ -131,6 +162,7 @@ This project follows an **incremental development model**:
 
 - [x] Core domain model + basic CRUD operations
 - [x] Graph queries and relationship traversals
+- [x] Swagger/OpenAPI Rest API documentation
 - [ ] Advanced queries and recommendations
 - [ ] Polish, testing, and documentation
 
