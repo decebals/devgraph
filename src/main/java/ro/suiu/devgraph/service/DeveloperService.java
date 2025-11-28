@@ -106,7 +106,26 @@ public class DeveloperService {
             throw new IllegalArgumentException("Email already exists: " + request.email());
         }
 
+        // Convert request to entity
         Developer developer = developerMapper.toEntity(request);
+
+        // Add skills if provided
+        if (request.skills() != null) {
+            request.skills().forEach(skillRequest -> {
+                Skill skill = skillRepository.findById(skillRequest.skillId()).orElseThrow(() -> new NotFoundException("Skill not found with id: " + skillRequest));
+                developer.addSkill(skill, skillRequest.level(), skillRequest.yearsOfExperience());
+            });
+        }
+
+        // Add projects if provided
+        if (request.projects() != null) {
+            request.projects().forEach(projectRequest -> {
+                Project project = projectRepository.findById(projectRequest.projectId()).orElseThrow(() -> new NotFoundException("Project not found with id: " + projectRequest));
+                developer.addProject(project, projectRequest.role(), projectRequest.durationInMonths());
+            });
+        }
+
+        // Save entity
         Developer saved = developerRepository.save(developer);
 
         log.info("Created developer with id: {}", saved.getId());

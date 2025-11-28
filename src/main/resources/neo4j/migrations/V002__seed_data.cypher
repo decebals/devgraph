@@ -70,22 +70,22 @@ CREATE (s5:Skill {
 
 // Create relationships - Developer KNOWS Skills
 MATCH (d:Developer {code: 'DEV001'}), (s:Skill {name: 'Java'})
-CREATE (d)-[:KNOWS {level: 'Expert', yearsOfExperience: 8}]->(s);
+CREATE (d)-[:KNOWS {level: 'EXPERT', yearsOfExperience: 8}]->(s);
 
 MATCH (d:Developer {code: 'DEV001'}), (s:Skill {name: 'Spring Boot'})
-CREATE (d)-[:KNOWS {level: 'Advanced', yearsOfExperience: 5}]->(s);
+CREATE (d)-[:KNOWS {level: 'ADVANCED', yearsOfExperience: 5}]->(s);
 
 MATCH (d:Developer {code: 'DEV001'}), (s:Skill {name: 'Neo4j'})
-CREATE (d)-[:KNOWS {level: 'Intermediate', yearsOfExperience: 2}]->(s);
+CREATE (d)-[:KNOWS {level: 'INTERMEDIATE', yearsOfExperience: 2}]->(s);
 
 MATCH (d:Developer {code: 'DEV002'}), (s:Skill {name: 'Java'})
-CREATE (d)-[:KNOWS {level: 'Expert', yearsOfExperience: 10}]->(s);
+CREATE (d)-[:KNOWS {level: 'EXPERT', yearsOfExperience: 10}]->(s);
 
 MATCH (d:Developer {code: 'DEV002'}), (s:Skill {name: 'Leadership'})
-CREATE (d)-[:KNOWS {level: 'Expert', yearsOfExperience: 5}]->(s);
+CREATE (d)-[:KNOWS {level: 'EXPERT', yearsOfExperience: 5}]->(s);
 
 MATCH (d:Developer {code: 'DEV002'}), (s:Skill {name: 'Architecture'})
-CREATE (d)-[:KNOWS {level: 'Expert', yearsOfExperience: 7}]->(s);
+CREATE (d)-[:KNOWS {level: 'EXPERT', yearsOfExperience: 7}]->(s);
 
 // Developer WORKED_ON Project relationships
 MATCH (d:Developer {code: 'DEV001'}), (p:Project {code: 'PROJ001'})
