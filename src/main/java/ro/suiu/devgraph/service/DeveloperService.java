@@ -5,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.suiu.devgraph.domain.Developer;
+import ro.suiu.devgraph.domain.KnowsRelationship;
 import ro.suiu.devgraph.domain.Project;
 import ro.suiu.devgraph.domain.Skill;
+import ro.suiu.devgraph.domain.WorkedOnRelationship;
 import ro.suiu.devgraph.dto.CreateDeveloperRequest;
 import ro.suiu.devgraph.dto.DeveloperDetailsResponse;
 import ro.suiu.devgraph.dto.DeveloperResponse;
@@ -74,11 +76,17 @@ public class DeveloperService {
         Developer developer = findDeveloperOrThrow(id);
 
         // Fetch skills via Cypher query
-        List<Skill> skills = skillRepository.findByDeveloperId(id);
+        List<Skill> skills = developer.getKnowsRelationships()
+                .stream()
+                .map(KnowsRelationship::getSkill)
+                .toList();
         List<SkillResponse> skillResponses = skillMapper.toResponseList(skills);
 
         // Fetch project contributions via Cypher query
-        List<Project> projects = projectRepository.findByDeveloperId(id);
+        List<Project> projects = developer.getWorkedOnRelationships()
+                .stream()
+                .map(WorkedOnRelationship::getProject)
+                .toList();
         List<ProjectResponse> projectResponses = projectMapper.toResponseList(projects);
 
         // Build detailed DTO
