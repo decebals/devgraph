@@ -1,5 +1,8 @@
 # Developer Skills Network
 
+> **Note**: This is the simple Neo4j-only version for learning purposes.
+> For the multi-database comparison version with benchmarking support, see the [main branch](../../tree/main).
+
 [![GitHub Actions Status](https://github.com/decebals/devgraph/actions/workflows/build.yml/badge.svg)](https://github.com/decebals/devgraph/actions/workflows/build.yml)
 
 A graph-based system for discovering, analyzing, and connecting software developers through their skills, projects, and professional relationships.
