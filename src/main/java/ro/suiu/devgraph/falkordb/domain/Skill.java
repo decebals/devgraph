@@ -1,10 +1,9 @@
 package ro.suiu.devgraph.falkordb.domain;
 
-import org.springframework.data.annotation.PersistenceCreator;
+import org.springframework.data.falkordb.core.schema.GeneratedValue;
 import org.springframework.data.falkordb.core.schema.Id;
 import org.springframework.data.falkordb.core.schema.Node;
-
-import java.util.UUID;
+import ro.suiu.devgraph.falkordb.util.UUIDStringGenerator;
 
 /**
  * FalkorDB Skill entity.
@@ -14,20 +13,12 @@ import java.util.UUID;
 public class Skill {
 
     @Id
+    @GeneratedValue(generatorClass = UUIDStringGenerator.class)
     private String id;
 
     private String name;
     private String category;
     private String description;
-
-    public Skill() {
-        this.id = UUID.randomUUID().toString();
-    }
-
-    @PersistenceCreator
-    public Skill(String id) {
-        this.id = id;
-    }
 
     public String getId() {
         return id;

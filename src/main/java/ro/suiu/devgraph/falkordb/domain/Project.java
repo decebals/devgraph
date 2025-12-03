@@ -1,11 +1,11 @@
 package ro.suiu.devgraph.falkordb.domain;
 
-import org.springframework.data.annotation.PersistenceCreator;
+import org.springframework.data.falkordb.core.schema.GeneratedValue;
 import org.springframework.data.falkordb.core.schema.Id;
 import org.springframework.data.falkordb.core.schema.Node;
+import ro.suiu.devgraph.falkordb.util.UUIDStringGenerator;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 /**
  * FalkorDB Project entity.
@@ -15,6 +15,7 @@ import java.util.UUID;
 public class Project {
 
     @Id
+    @GeneratedValue(generatorClass = UUIDStringGenerator.class)
     private String id;
 
     private String name;
@@ -22,15 +23,6 @@ public class Project {
     private LocalDate startDate;
     private LocalDate endDate;
     private String status;
-
-    public Project() {
-        this.id = UUID.randomUUID().toString();
-    }
-
-    @PersistenceCreator
-    public Project(String id) {
-        this.id = id;
-    }
 
     public String getId() {
         return id;

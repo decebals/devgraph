@@ -1,14 +1,14 @@
 package ro.suiu.devgraph.falkordb.domain;
 
-import org.springframework.data.annotation.PersistenceCreator;
+import org.springframework.data.falkordb.core.schema.GeneratedValue;
 import org.springframework.data.falkordb.core.schema.Id;
 import org.springframework.data.falkordb.core.schema.Node;
 import org.springframework.data.falkordb.core.schema.Relationship;
 import ro.suiu.devgraph.domain.SkillLevel;
+import ro.suiu.devgraph.falkordb.util.UUIDStringGenerator;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import static org.springframework.data.falkordb.core.schema.Relationship.Direction.OUTGOING;
 
@@ -20,6 +20,7 @@ import static org.springframework.data.falkordb.core.schema.Relationship.Directi
 public class Developer {
 
     @Id
+    @GeneratedValue(generatorClass = UUIDStringGenerator.class)
     private String id;
 
     private String code;
@@ -33,15 +34,6 @@ public class Developer {
 
     @Relationship(type = "WORKED_ON", direction = OUTGOING)
     private Set<WorkedOnRelationship> workedOnRelationships;
-
-    public Developer() {
-        this.id = UUID.randomUUID().toString();
-    }
-
-    @PersistenceCreator
-    public Developer(String id) {
-        this.id = id;
-    }
 
     public String getId() {
         return id;
