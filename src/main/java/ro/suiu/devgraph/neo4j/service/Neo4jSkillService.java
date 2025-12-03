@@ -11,18 +11,19 @@ import ro.suiu.devgraph.dto.UpdateSkillRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
 import ro.suiu.devgraph.mapper.SkillMapper;
 import ro.suiu.devgraph.neo4j.repository.SkillRepository;
+import ro.suiu.devgraph.service.SkillService;
 
 import java.util.List;
 
 @Service
-public class SkillService {
+public class Neo4jSkillService implements SkillService {
 
-    private static final Logger log = LoggerFactory.getLogger(SkillService.class);
+    private static final Logger log = LoggerFactory.getLogger(Neo4jSkillService.class);
 
     private final SkillRepository skillRepository;
     private final SkillMapper skillMapper;
 
-    public SkillService(SkillRepository skillRepository, SkillMapper skillMapper) {
+    public Neo4jSkillService(SkillRepository skillRepository, SkillMapper skillMapper) {
         this.skillRepository = skillRepository;
         this.skillMapper = skillMapper;
     }

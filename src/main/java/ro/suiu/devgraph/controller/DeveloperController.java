@@ -16,7 +16,7 @@ import ro.suiu.devgraph.dto.CreateDeveloperRequest;
 import ro.suiu.devgraph.dto.DeveloperDetailsResponse;
 import ro.suiu.devgraph.dto.DeveloperResponse;
 import ro.suiu.devgraph.dto.UpdateDeveloperRequest;
-import ro.suiu.devgraph.neo4j.service.DeveloperService;
+import ro.suiu.devgraph.service.DeveloperService;
 
 import java.util.List;
 

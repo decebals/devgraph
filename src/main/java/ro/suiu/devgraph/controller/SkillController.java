@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ro.suiu.devgraph.dto.CreateSkillRequest;
 import ro.suiu.devgraph.dto.SkillResponse;
 import ro.suiu.devgraph.dto.UpdateSkillRequest;
-import ro.suiu.devgraph.neo4j.service.SkillService;
+import ro.suiu.devgraph.service.SkillService;
 
 import java.util.List;
 

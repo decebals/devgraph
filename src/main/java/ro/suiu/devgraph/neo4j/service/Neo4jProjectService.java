@@ -11,18 +11,19 @@ import ro.suiu.devgraph.dto.UpdateProjectRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
 import ro.suiu.devgraph.mapper.ProjectMapper;
 import ro.suiu.devgraph.neo4j.repository.ProjectRepository;
+import ro.suiu.devgraph.service.ProjectService;
 
 import java.util.List;
 
 @Service
-public class ProjectService {
+public class Neo4jProjectService implements ProjectService {
 
-    private static final Logger log = LoggerFactory.getLogger(ProjectService.class);
+    private static final Logger log = LoggerFactory.getLogger(Neo4jProjectService.class);
 
     private final ProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
 
-    public ProjectService(ProjectRepository projectRepository, ProjectMapper projectMapper) {
+    public Neo4jProjectService(ProjectRepository projectRepository, ProjectMapper projectMapper) {
         this.projectRepository = projectRepository;
         this.projectMapper = projectMapper;
     }

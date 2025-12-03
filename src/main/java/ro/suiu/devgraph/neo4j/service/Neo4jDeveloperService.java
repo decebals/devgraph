@@ -22,14 +22,15 @@ import ro.suiu.devgraph.mapper.SkillMapper;
 import ro.suiu.devgraph.neo4j.repository.DeveloperRepository;
 import ro.suiu.devgraph.neo4j.repository.ProjectRepository;
 import ro.suiu.devgraph.neo4j.repository.SkillRepository;
+import ro.suiu.devgraph.service.DeveloperService;
 
 import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class DeveloperService {
+public class Neo4jDeveloperService implements DeveloperService {
 
-    private static final Logger log = LoggerFactory.getLogger(DeveloperService.class);
+    private static final Logger log = LoggerFactory.getLogger(Neo4jDeveloperService.class);
 
     private final DeveloperRepository developerRepository;
     private final SkillRepository skillRepository;
@@ -38,8 +39,8 @@ public class DeveloperService {
     private final SkillMapper skillMapper;
     private final ProjectMapper projectMapper;
 
-    public DeveloperService(DeveloperRepository developerRepository, SkillRepository skillRepository, ProjectRepository projectRepository,
-                            DeveloperMapper developerMapper, SkillMapper skillMapper, ProjectMapper projectMapper) {
+    public Neo4jDeveloperService(DeveloperRepository developerRepository, SkillRepository skillRepository, ProjectRepository projectRepository,
+                                  DeveloperMapper developerMapper, SkillMapper skillMapper, ProjectMapper projectMapper) {
         this.developerRepository = developerRepository;
         this.skillRepository = skillRepository;
         this.projectRepository = projectRepository;

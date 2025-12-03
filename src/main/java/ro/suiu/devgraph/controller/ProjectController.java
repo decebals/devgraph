@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ro.suiu.devgraph.dto.CreateProjectRequest;
 import ro.suiu.devgraph.dto.ProjectResponse;
 import ro.suiu.devgraph.dto.UpdateProjectRequest;
-import ro.suiu.devgraph.neo4j.service.ProjectService;
+import ro.suiu.devgraph.service.ProjectService;
 
 import java.util.List;
 
