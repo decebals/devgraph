@@ -42,4 +42,5 @@ public interface DeveloperService {
      * Delete developer.
      */
     void deleteDeveloper(String id);
+
 }

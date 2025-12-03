@@ -4,6 +4,9 @@ import org.springframework.data.falkordb.core.schema.IdGenerator;
 
 import java.util.UUID;
 
+/**
+ * UUID-based String ID generator for FalkorDB entities.
+ */
 public class UUIDStringGenerator implements IdGenerator<String> {
 
     @Override

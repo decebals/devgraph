@@ -142,4 +142,5 @@ public class FalkorDBMigrations implements ApplicationRunner {
     }
 
     private record Migration(String version, String description, String content) {}
+
 }

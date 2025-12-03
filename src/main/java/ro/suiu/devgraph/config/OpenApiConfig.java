@@ -15,7 +15,7 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("DevGraph API")
-                        .description("knowledge graph for discovering developers through skills and projects")
+                        .description("Knowledge graph for discovering developers through skills and projects")
                         .version("1.0.0")
                         .contact(new Contact()
                                 .name("Decebal Suiu")

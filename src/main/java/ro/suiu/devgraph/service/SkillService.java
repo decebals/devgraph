@@ -36,4 +36,5 @@ public interface SkillService {
      * Delete skill.
      */
     void deleteSkill(String id);
+
 }
