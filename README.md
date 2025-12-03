@@ -7,7 +7,7 @@ A graph-based system for discovering, analyzing, and connecting software develop
 ## Project Purpose
 
 This is a **demonstration project** showcasing:
-- Graph database modeling with <a href="https://neo4j.com/" target="_blank">**Neo4j**</a> & <a href="https://www.falkordb.com/" target="_blank">**FalkorDB**</a>
+- Graph database modeling with [**Neo4j**](https://neo4j.com/) & [**FalkorDB**](https://www.falkordb.com/)
 - **Spring Boot** REST API development
 - Domain-Driven Design principles
 - Incremental development approach
