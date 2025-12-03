@@ -1,9 +1,11 @@
-package ro.suiu.devgraph.mapper;
+package ro.suiu.devgraph.falkordb.mapper;
 
+import org.mapstruct.AnnotateWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import ro.suiu.devgraph.neo4j.domain.Project;
+import org.springframework.context.annotation.Profile;
+import ro.suiu.devgraph.falkordb.domain.Project;
 import ro.suiu.devgraph.dto.CreateProjectRequest;
 import ro.suiu.devgraph.dto.ProjectResponse;
 import ro.suiu.devgraph.dto.UpdateProjectRequest;
@@ -11,18 +13,16 @@ import ro.suiu.devgraph.dto.UpdateProjectRequest;
 import java.util.List;
 
 /**
- * Mapper for {@link Project} entity and related DTOs.
+ * Mapper for FalkorDB Project entities and related DTOs.
+ * Active only when "falkordb" profile is enabled.
  */
 @Mapper(componentModel = "spring")
+@AnnotateWith(value = Profile.class, elements = @AnnotateWith.Element(strings = "falkordb"))
 public interface ProjectMapper {
-
-    // READS (Entity → Response)
 
     ProjectResponse toResponse(Project entity);
 
     List<ProjectResponse> toResponseList(List<Project> entities);
-
-    // WRITES (Request → Entity)
 
     Project toEntity(CreateProjectRequest request);
 

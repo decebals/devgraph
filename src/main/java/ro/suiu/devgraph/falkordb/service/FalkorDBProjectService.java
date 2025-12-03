@@ -1,31 +1,31 @@
-package ro.suiu.devgraph.neo4j.service;
+package ro.suiu.devgraph.falkordb.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.suiu.devgraph.neo4j.domain.Project;
+import ro.suiu.devgraph.falkordb.domain.Project;
 import ro.suiu.devgraph.dto.CreateProjectRequest;
 import ro.suiu.devgraph.dto.ProjectResponse;
 import ro.suiu.devgraph.dto.UpdateProjectRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
-import ro.suiu.devgraph.neo4j.mapper.ProjectMapper;
-import ro.suiu.devgraph.neo4j.repository.ProjectRepository;
+import ro.suiu.devgraph.falkordb.mapper.ProjectMapper;
+import ro.suiu.devgraph.falkordb.repository.ProjectRepository;
 import ro.suiu.devgraph.service.ProjectService;
 
 import java.util.List;
 
 @Service
-@Profile("neo4j")
-public class Neo4jProjectService implements ProjectService {
+@Profile("falkordb")
+public class FalkorDBProjectService implements ProjectService {
 
-    private static final Logger log = LoggerFactory.getLogger(Neo4jProjectService.class);
+    private static final Logger log = LoggerFactory.getLogger(FalkorDBProjectService.class);
 
     private final ProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
 
-    public Neo4jProjectService(ProjectRepository projectRepository, ProjectMapper projectMapper) {
+    public FalkorDBProjectService(ProjectRepository projectRepository, ProjectMapper projectMapper) {
         this.projectRepository = projectRepository;
         this.projectMapper = projectMapper;
     }

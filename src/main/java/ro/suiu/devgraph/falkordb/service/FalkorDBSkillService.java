@@ -1,31 +1,31 @@
-package ro.suiu.devgraph.neo4j.service;
+package ro.suiu.devgraph.falkordb.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.suiu.devgraph.neo4j.domain.Skill;
+import ro.suiu.devgraph.falkordb.domain.Skill;
 import ro.suiu.devgraph.dto.CreateSkillRequest;
 import ro.suiu.devgraph.dto.SkillResponse;
 import ro.suiu.devgraph.dto.UpdateSkillRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
-import ro.suiu.devgraph.neo4j.mapper.SkillMapper;
-import ro.suiu.devgraph.neo4j.repository.SkillRepository;
+import ro.suiu.devgraph.falkordb.mapper.SkillMapper;
+import ro.suiu.devgraph.falkordb.repository.SkillRepository;
 import ro.suiu.devgraph.service.SkillService;
 
 import java.util.List;
 
 @Service
-@Profile("neo4j")
-public class Neo4jSkillService implements SkillService {
+@Profile("falkordb")
+public class FalkorDBSkillService implements SkillService {
 
-    private static final Logger log = LoggerFactory.getLogger(Neo4jSkillService.class);
+    private static final Logger log = LoggerFactory.getLogger(FalkorDBSkillService.class);
 
     private final SkillRepository skillRepository;
     private final SkillMapper skillMapper;
 
-    public Neo4jSkillService(SkillRepository skillRepository, SkillMapper skillMapper) {
+    public FalkorDBSkillService(SkillRepository skillRepository, SkillMapper skillMapper) {
         this.skillRepository = skillRepository;
         this.skillMapper = skillMapper;
     }

@@ -1,6 +1,6 @@
 version: '3.8'
 
-# Minimal Neo4j setup for quick start
+# Multi-database setup for DevGraph
 services:
   neo4j:
     image: neo4j:5.15-community
@@ -14,5 +14,15 @@ services:
       - neo4j-data:/data
     restart: unless-stopped
 
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: devgraph-falkordb
+    ports:
+      - "6379:6379"
+    volumes:
+      - falkordb-data:/data
+    restart: unless-stopped
+
 volumes:
   neo4j-data:
+  falkordb-data:

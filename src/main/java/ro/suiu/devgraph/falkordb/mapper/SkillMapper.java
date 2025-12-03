@@ -1,9 +1,11 @@
-package ro.suiu.devgraph.mapper;
+package ro.suiu.devgraph.falkordb.mapper;
 
+import org.mapstruct.AnnotateWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import ro.suiu.devgraph.neo4j.domain.Skill;
+import org.springframework.context.annotation.Profile;
+import ro.suiu.devgraph.falkordb.domain.Skill;
 import ro.suiu.devgraph.dto.CreateSkillRequest;
 import ro.suiu.devgraph.dto.SkillResponse;
 import ro.suiu.devgraph.dto.UpdateSkillRequest;
@@ -11,18 +13,16 @@ import ro.suiu.devgraph.dto.UpdateSkillRequest;
 import java.util.List;
 
 /**
- * Mapper for {@link Skill} entity and related DTOs.
+ * Mapper for FalkorDB Skill entities and related DTOs.
+ * Active only when "falkordb" profile is enabled.
  */
 @Mapper(componentModel = "spring")
+@AnnotateWith(value = Profile.class, elements = @AnnotateWith.Element(strings = "falkordb"))
 public interface SkillMapper {
-
-    // READS (Entity → Response)
 
     SkillResponse toResponse(Skill entity);
 
     List<SkillResponse> toResponseList(List<Skill> entities);
-
-    // WRITES (Request → Entity)
 
     Skill toEntity(CreateSkillRequest request);
 

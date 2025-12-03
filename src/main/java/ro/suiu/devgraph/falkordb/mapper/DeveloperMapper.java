@@ -1,9 +1,11 @@
-package ro.suiu.devgraph.mapper;
+package ro.suiu.devgraph.falkordb.mapper;
 
+import org.mapstruct.AnnotateWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import ro.suiu.devgraph.neo4j.domain.Developer;
+import org.springframework.context.annotation.Profile;
+import ro.suiu.devgraph.falkordb.domain.Developer;
 import ro.suiu.devgraph.dto.CreateDeveloperRequest;
 import ro.suiu.devgraph.dto.DeveloperDetailsResponse;
 import ro.suiu.devgraph.dto.DeveloperResponse;
@@ -12,12 +14,12 @@ import ro.suiu.devgraph.dto.UpdateDeveloperRequest;
 import java.util.List;
 
 /**
- * Mapper for {@link Developer} entity and related DTOs.
+ * Mapper for FalkorDB Developer entities and related DTOs.
+ * Active only when "falkordb" profile is enabled.
  */
 @Mapper(componentModel = "spring")
+@AnnotateWith(value = Profile.class, elements = @AnnotateWith.Element(strings = "falkordb"))
 public interface DeveloperMapper {
-
-    // READS (Entity → Response)
 
     DeveloperResponse toResponse(Developer entity);
 
@@ -26,8 +28,6 @@ public interface DeveloperMapper {
     DeveloperDetailsResponse toDetailsResponse(Developer entity);
 
     List<DeveloperResponse> toResponseList(List<Developer> entities);
-
-    // WRITES (Request → Entity)
 
     Developer toEntity(CreateDeveloperRequest request);
 

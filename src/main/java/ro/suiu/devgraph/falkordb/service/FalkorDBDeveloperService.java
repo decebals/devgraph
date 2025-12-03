@@ -1,15 +1,15 @@
-package ro.suiu.devgraph.neo4j.service;
+package ro.suiu.devgraph.falkordb.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.suiu.devgraph.neo4j.domain.Developer;
-import ro.suiu.devgraph.neo4j.domain.KnowsRelationship;
-import ro.suiu.devgraph.neo4j.domain.Project;
-import ro.suiu.devgraph.neo4j.domain.Skill;
-import ro.suiu.devgraph.neo4j.domain.WorkedOnRelationship;
+import ro.suiu.devgraph.falkordb.domain.Developer;
+import ro.suiu.devgraph.falkordb.domain.KnowsRelationship;
+import ro.suiu.devgraph.falkordb.domain.Project;
+import ro.suiu.devgraph.falkordb.domain.Skill;
+import ro.suiu.devgraph.falkordb.domain.WorkedOnRelationship;
 import ro.suiu.devgraph.dto.CreateDeveloperRequest;
 import ro.suiu.devgraph.dto.DeveloperDetailsResponse;
 import ro.suiu.devgraph.dto.DeveloperResponse;
@@ -17,22 +17,22 @@ import ro.suiu.devgraph.dto.ProjectResponse;
 import ro.suiu.devgraph.dto.SkillResponse;
 import ro.suiu.devgraph.dto.UpdateDeveloperRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
-import ro.suiu.devgraph.neo4j.mapper.DeveloperMapper;
-import ro.suiu.devgraph.neo4j.mapper.ProjectMapper;
-import ro.suiu.devgraph.neo4j.mapper.SkillMapper;
-import ro.suiu.devgraph.neo4j.repository.DeveloperRepository;
-import ro.suiu.devgraph.neo4j.repository.ProjectRepository;
-import ro.suiu.devgraph.neo4j.repository.SkillRepository;
+import ro.suiu.devgraph.falkordb.mapper.DeveloperMapper;
+import ro.suiu.devgraph.falkordb.mapper.ProjectMapper;
+import ro.suiu.devgraph.falkordb.mapper.SkillMapper;
+import ro.suiu.devgraph.falkordb.repository.DeveloperRepository;
+import ro.suiu.devgraph.falkordb.repository.ProjectRepository;
+import ro.suiu.devgraph.falkordb.repository.SkillRepository;
 import ro.suiu.devgraph.service.DeveloperService;
 
 import java.util.List;
 
 @Service
-@Profile("neo4j")
+@Profile("falkordb")
 @Transactional(readOnly = true)
-public class Neo4jDeveloperService implements DeveloperService {
+public class FalkorDBDeveloperService implements DeveloperService {
 
-    private static final Logger log = LoggerFactory.getLogger(Neo4jDeveloperService.class);
+    private static final Logger log = LoggerFactory.getLogger(FalkorDBDeveloperService.class);
 
     private final DeveloperRepository developerRepository;
     private final SkillRepository skillRepository;
@@ -41,8 +41,8 @@ public class Neo4jDeveloperService implements DeveloperService {
     private final SkillMapper skillMapper;
     private final ProjectMapper projectMapper;
 
-    public Neo4jDeveloperService(DeveloperRepository developerRepository, SkillRepository skillRepository, ProjectRepository projectRepository,
-                                  DeveloperMapper developerMapper, SkillMapper skillMapper, ProjectMapper projectMapper) {
+    public FalkorDBDeveloperService(DeveloperRepository developerRepository, SkillRepository skillRepository, ProjectRepository projectRepository,
+                                     DeveloperMapper developerMapper, SkillMapper skillMapper, ProjectMapper projectMapper) {
         this.developerRepository = developerRepository;
         this.skillRepository = skillRepository;
         this.projectRepository = projectRepository;
@@ -78,14 +78,14 @@ public class Neo4jDeveloperService implements DeveloperService {
         // Fetch developer
         Developer developer = findDeveloperOrThrow(id);
 
-        // Fetch skills via Cypher query
+        // Fetch skills via relationships
         List<Skill> skills = developer.getKnowsRelationships()
                 .stream()
                 .map(KnowsRelationship::getSkill)
                 .toList();
         List<SkillResponse> skillResponses = skillMapper.toResponseList(skills);
 
-        // Fetch project contributions via Cypher query
+        // Fetch projects via relationships
         List<Project> projects = developer.getWorkedOnRelationships()
                 .stream()
                 .map(WorkedOnRelationship::getProject)

@@ -1,6 +1,6 @@
 package ro.suiu.devgraph.dto;
 
-import ro.suiu.devgraph.neo4j.domain.SkillLevel;
+import ro.suiu.devgraph.domain.SkillLevel;
 
 public record SkillKnowledge(
         String skillId,

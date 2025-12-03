@@ -1,9 +1,9 @@
-package ro.suiu.devgraph.neo4j.domain;
+package ro.suiu.devgraph.falkordb.domain;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.RelationshipProperties;
-import org.springframework.data.neo4j.core.schema.TargetNode;
+import org.springframework.data.falkordb.core.schema.GeneratedValue;
+import org.springframework.data.falkordb.core.schema.Id;
+import org.springframework.data.falkordb.core.schema.RelationshipProperties;
+import org.springframework.data.falkordb.core.schema.TargetNode;
 import ro.suiu.devgraph.domain.SkillLevel;
 
 @RelationshipProperties

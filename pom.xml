@@ -35,13 +35,18 @@
     <properties>
         <java.version>25</java.version>
         <neo4j-migration.version>2.9.3</neo4j-migration.version>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-neo4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.falkordb</groupId>
+            <artifactId>spring-data-falkordb</artifactId>
+            <version>8.0.0-RC5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
