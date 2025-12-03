@@ -2,6 +2,7 @@ package ro.suiu.devgraph.neo4j.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.suiu.devgraph.neo4j.domain.Developer;
@@ -27,6 +28,7 @@ import ro.suiu.devgraph.service.DeveloperService;
 import java.util.List;
 
 @Service
+@Profile("neo4j")
 @Transactional(readOnly = true)
 public class Neo4jDeveloperService implements DeveloperService {
 
