@@ -16,6 +16,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -105,15 +106,23 @@ public class FalkorDBMigrations implements ApplicationRunner {
         for (String stmt : m.content().split(";")) {
             String trimmed = stmt.trim();
             if (!trimmed.isEmpty() && !trimmed.startsWith("//")) {
-                graph.query(trimmed);
+                log.debug("Executing migration V{} statement: {}", m.version(), trimmed);
+                try {
+                    graph.query(trimmed);
+                } catch (Exception e) {
+                    log.error("Failed executing migration V{} statement: {}\nMigration: V{} - {}\nError: {}",
+                            m.version(), trimmed, m.version(), m.description(), e.getMessage(), e);
+                    throw e;
+                }
             }
         }
 
         // Record migration
         String recordQuery = String.format(
-                "CREATE (:__FalkorDBMigration {version: '%s', description: '%s', appliedAt: datetime(), appliedBy: '%s'})",
+                "CREATE (:__FalkorDBMigration {version: '%s', description: '%s', appliedAt: '%s', appliedBy: '%s'})",
                 m.version(),
                 m.description().replace("'", "\\'"),
+                Instant.now().toString(),
                 System.getProperty("user.name", "devgraph")
         );
         graph.query(recordQuery);
