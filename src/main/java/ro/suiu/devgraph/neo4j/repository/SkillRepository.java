@@ -1,9 +1,9 @@
-package ro.suiu.devgraph.repository;
+package ro.suiu.devgraph.neo4j.repository;
 
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;
-import ro.suiu.devgraph.domain.Skill;
+import ro.suiu.devgraph.neo4j.domain.Skill;
 
 import java.util.List;
 

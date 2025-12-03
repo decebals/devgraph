@@ -1,14 +1,14 @@
-package ro.suiu.devgraph.service;
+package ro.suiu.devgraph.neo4j.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.suiu.devgraph.domain.Developer;
-import ro.suiu.devgraph.domain.KnowsRelationship;
-import ro.suiu.devgraph.domain.Project;
-import ro.suiu.devgraph.domain.Skill;
-import ro.suiu.devgraph.domain.WorkedOnRelationship;
+import ro.suiu.devgraph.neo4j.domain.Developer;
+import ro.suiu.devgraph.neo4j.domain.KnowsRelationship;
+import ro.suiu.devgraph.neo4j.domain.Project;
+import ro.suiu.devgraph.neo4j.domain.Skill;
+import ro.suiu.devgraph.neo4j.domain.WorkedOnRelationship;
 import ro.suiu.devgraph.dto.CreateDeveloperRequest;
 import ro.suiu.devgraph.dto.DeveloperDetailsResponse;
 import ro.suiu.devgraph.dto.DeveloperResponse;
@@ -19,9 +19,9 @@ import ro.suiu.devgraph.exception.NotFoundException;
 import ro.suiu.devgraph.mapper.DeveloperMapper;
 import ro.suiu.devgraph.mapper.ProjectMapper;
 import ro.suiu.devgraph.mapper.SkillMapper;
-import ro.suiu.devgraph.repository.DeveloperRepository;
-import ro.suiu.devgraph.repository.ProjectRepository;
-import ro.suiu.devgraph.repository.SkillRepository;
+import ro.suiu.devgraph.neo4j.repository.DeveloperRepository;
+import ro.suiu.devgraph.neo4j.repository.ProjectRepository;
+import ro.suiu.devgraph.neo4j.repository.SkillRepository;
 
 import java.util.List;
 

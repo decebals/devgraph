@@ -3,7 +3,7 @@ package ro.suiu.devgraph.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import ro.suiu.devgraph.domain.Project;
+import ro.suiu.devgraph.neo4j.domain.Project;
 import ro.suiu.devgraph.dto.CreateProjectRequest;
 import ro.suiu.devgraph.dto.ProjectResponse;
 import ro.suiu.devgraph.dto.UpdateProjectRequest;

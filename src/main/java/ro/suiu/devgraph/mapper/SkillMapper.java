@@ -3,7 +3,7 @@ package ro.suiu.devgraph.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import ro.suiu.devgraph.domain.Skill;
+import ro.suiu.devgraph.neo4j.domain.Skill;
 import ro.suiu.devgraph.dto.CreateSkillRequest;
 import ro.suiu.devgraph.dto.SkillResponse;
 import ro.suiu.devgraph.dto.UpdateSkillRequest;

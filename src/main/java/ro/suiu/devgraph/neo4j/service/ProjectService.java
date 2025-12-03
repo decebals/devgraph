@@ -1,16 +1,16 @@
-package ro.suiu.devgraph.service;
+package ro.suiu.devgraph.neo4j.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.suiu.devgraph.domain.Project;
+import ro.suiu.devgraph.neo4j.domain.Project;
 import ro.suiu.devgraph.dto.CreateProjectRequest;
 import ro.suiu.devgraph.dto.ProjectResponse;
 import ro.suiu.devgraph.dto.UpdateProjectRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
 import ro.suiu.devgraph.mapper.ProjectMapper;
-import ro.suiu.devgraph.repository.ProjectRepository;
+import ro.suiu.devgraph.neo4j.repository.ProjectRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ro.suiu.devgraph.domain;
+package ro.suiu.devgraph.neo4j.domain;
 
 public enum SkillLevel {
 

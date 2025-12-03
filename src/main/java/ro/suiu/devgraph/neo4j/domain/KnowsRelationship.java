@@ -1,4 +1,4 @@
-package ro.suiu.devgraph.domain;
+package ro.suiu.devgraph.neo4j.domain;
 
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;

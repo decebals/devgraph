@@ -1,16 +1,16 @@
-package ro.suiu.devgraph.service;
+package ro.suiu.devgraph.neo4j.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.suiu.devgraph.domain.Skill;
+import ro.suiu.devgraph.neo4j.domain.Skill;
 import ro.suiu.devgraph.dto.CreateSkillRequest;
 import ro.suiu.devgraph.dto.SkillResponse;
 import ro.suiu.devgraph.dto.UpdateSkillRequest;
 import ro.suiu.devgraph.exception.NotFoundException;
 import ro.suiu.devgraph.mapper.SkillMapper;
-import ro.suiu.devgraph.repository.SkillRepository;
+import ro.suiu.devgraph.neo4j.repository.SkillRepository;
 
 import java.util.List;
 
