@@ -48,6 +48,14 @@
             <artifactId>spring-data-falkordb</artifactId>
             <version>8.0.0-RC5</version>
         </dependency>
+        <!-- Commented out until FalkorDB Spring Boot starter is available -->
+        <!--
+        <dependency>
+            <groupId>com.falkordb</groupId>
+            <artifactId>spring-boot-starter-data-falkordb</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
